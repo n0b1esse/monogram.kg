@@ -12,180 +12,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --ivory:#f4efe7;
-  --sand:#e9dfcf;
-  --sand2:#ded2ba;
-  --ink:#16120d;
-  --ink2:#241e16;
-  --bronze:#8a6e4b;
-  --bronze2:#a5855c;
-  --muted:#6f6558;
-  --line:rgba(22,18,13,.14);
-  --card:#fbf8f2;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  font-family:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  background:var(--ivory);
-  color:var(--ink);
-  line-height:1.6;
-  overflow-x:hidden;
-}
-::selection{background:var(--bronze);color:#fff}
-.serif{font-family:"Cormorant Garamond",Georgia,serif}
-.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;letter-spacing:.22em;text-transform:uppercase}
-.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
-/* NAV */
-nav{
-  position:fixed;inset:0 0 auto 0;z-index:50;
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  background:rgba(244,239,231,.82);
-  border-bottom:1px solid var(--line);
-}
-.nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
-.logo{font-family:"Cormorant Garamond",serif;font-size:26px;letter-spacing:.28em;font-weight:600;text-decoration:none;color:var(--ink)}
-.nav-links{display:flex;gap:28px;align-items:center}
-.nav-links a{color:var(--ink);text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.04em}
-.nav-links a:hover{color:var(--bronze)}
-.nav-links a.btn{color:var(--ivory)}
-.nav-links a.btn.ghost{color:var(--ink)}
-.btn{
-  display:inline-flex;align-items:center;gap:10px;
-  background:var(--ink);color:var(--ivory);
-  padding:13px 26px;border-radius:999px;text-decoration:none;
-  font-weight:700;font-size:15px;border:1px solid var(--ink);
-  transition:transform .25s ease,background .25s ease,color .25s ease;
-  cursor:pointer;
-}
-.btn:hover{background:var(--bronze);border-color:var(--bronze);transform:translateY(-2px)}
-.btn.ghost{background:transparent;color:var(--ink)}
-.btn.ghost:hover{background:var(--ink);color:var(--ivory)}
-.btn.small{padding:10px 20px;font-size:13px}
-/* HERO */
-.hero{position:relative;background:var(--ink);overflow:hidden}
-.hero-bg{position:absolute;inset:0}
-.hero-bg img{width:100%;height:100%;object-fit:cover;display:block}
-.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(10,8,5,.74) 15%,rgba(10,8,5,.42) 55%,rgba(10,8,5,.18) 100%)}
-.hero-in{position:relative;z-index:2;padding:168px 0 84px;min-height:92vh;display:flex;flex-direction:column;justify-content:center}
-.hero .kicker{color:var(--sand2);margin-bottom:14px}
-.hero h1{color:#fff;font-weight:500;line-height:1.04;font-size:clamp(40px,6.2vw,82px);max-width:14ch;text-shadow:0 2px 24px rgba(0,0,0,.45)}
-.hero p{color:rgba(255,255,255,.86);max-width:48ch;margin-top:16px;font-size:17px}
-.hero .row{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap}
-.hero-meta{display:flex;gap:28px;flex-wrap:wrap;margin-top:46px;padding-top:22px;border-top:1px solid rgba(255,255,255,.22)}
-.hero-meta div{color:rgba(255,255,255,.72);font-size:14px}
-.hero-meta b{display:block;color:#fff;font-size:15px;margin-bottom:2px}
-.btn.light{background:var(--ivory);color:var(--ink);border-color:var(--ivory)}
-.btn.light:hover{background:var(--bronze2);border-color:var(--bronze2);color:#fff}
-.btn.line{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
-.btn.line:hover{border-color:#fff;background:rgba(255,255,255,.12)}
-/* MARQUEE */
-.marquee{background:var(--ink);color:var(--sand);overflow:hidden;border-top:1px solid rgba(255,255,255,.08);padding:14px 0}
-.marquee-track{display:flex;gap:56px;white-space:nowrap;animation:mq 26s linear infinite;width:max-content}
-.marquee-track span{font-size:13px;letter-spacing:.3em;text-transform:uppercase}
-@keyframes mq{to{transform:translateX(-50%)}}
-/* SECTIONS */
-section{padding:96px 0}
-.eyebrow{color:var(--bronze);font-weight:700;margin-bottom:14px}
-h2.title{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(32px,4.4vw,56px);line-height:1.08;max-width:20ch}
-.lead{color:var(--muted);font-size:18px;max-width:62ch;margin-top:16px}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-top:44px}
-.stat{background:var(--card);padding:28px 24px}
-.stat b{font-family:"Cormorant Garamond",serif;font-size:38px;font-weight:600;display:block;line-height:1}
-.stat small{color:var(--muted);font-size:14px}
-/* COLLECTION */
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
-.card{position:relative;border-radius:18px;overflow:hidden;background:var(--sand);aspect-ratio:3/4;cursor:pointer;border:1px solid var(--line)}
-.card img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease;display:block}
-.card:hover img{transform:scale(1.05)}
-.card .cap{position:absolute;left:0;right:0;bottom:0;padding:44px 18px 18px;background:linear-gradient(180deg,transparent,rgba(10,8,5,.78));color:#fff}
-.card .cap b{font-size:15px;display:block}
-.card .cap small{opacity:.75;font-size:13px}
-/* ABOUT */
-.about{background:var(--ink);color:var(--ivory);border-radius:28px;padding:72px 0;position:relative;overflow:hidden}
-.about .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
-.about h2{color:#fff}
-.about p{color:rgba(244,239,231,.78);margin-top:16px;font-size:17px}
-.checks{margin-top:26px;display:grid;gap:14px}
-.check{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 18px}
-.check i{width:30px;height:30px;flex:0 0 30px;border-radius:50%;background:var(--bronze);color:#fff;display:flex;align-items:center;justify-content:center;font-style:normal;font-weight:700}
-.about-photo{border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.14)}
-.about-photo img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:3/4}
-/* STORES */
-.stores{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:44px}
-.store{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:34px}
-.store h3{font-family:"Cormorant Garamond",serif;font-size:30px;font-weight:600}
-.store .addr{margin:12px 0 4px;font-size:17px}
-.store .meta{color:var(--muted);font-size:14px}
-.store .row{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
-/* STEPS */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
-.step{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:30px}
-.step .n{font-family:"Cormorant Garamond",serif;font-size:44px;color:var(--bronze);line-height:1}
-.step h4{margin:12px 0 8px;font-size:18px}
-.step p{color:var(--muted);font-size:15px}
-/* FAQ */
-.faq{margin-top:36px;display:grid;gap:12px}
-.faq details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
-.faq summary{cursor:pointer;font-weight:700;font-size:16px;list-style:none}
-.faq summary::-webkit-details-marker{display:none}
-.faq details p{color:var(--muted);margin-top:10px;font-size:15px}
-/* CTA */
-.cta{background:linear-gradient(135deg,var(--ink2),#3a2d1d);color:#fff;border-radius:28px;padding:72px 24px;text-align:center;position:relative;overflow:hidden}
-.cta h2{font-family:"Cormorant Garamond",serif;font-size:clamp(32px,4.6vw,58px);font-weight:500;line-height:1.08;max-width:22ch;margin:0 auto}
-.cta p{color:rgba(255,255,255,.75);margin:16px auto 0;max-width:52ch}
-.cta .row{display:flex;gap:12px;justify-content:center;margin-top:30px;flex-wrap:wrap}
-.wa-form{margin:34px auto 0;max-width:520px;display:grid;gap:10px;text-align:left}
-.wa-form input,.wa-form select{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:12px;padding:14px 16px;font-size:15px;width:100%}
-.wa-form input::placeholder{color:rgba(255,255,255,.5)}
-.wa-form .note{font-size:13px;color:rgba(255,255,255,.6);text-align:center}
-/* FOOTER */
-footer{padding:56px 0 40px;border-top:1px solid var(--line);margin-top:40px}
-.foot{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap}
-.foot small{color:var(--muted);display:block;margin-top:8px;line-height:1.7}
-.foot a{color:var(--ink)}
-/* REVEAL */
-.rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
-.rv.in{opacity:1;transform:none}
-/* LIGHTBOX */
-.lb{position:fixed;inset:0;background:rgba(10,8,5,.9);display:none;align-items:center;justify-content:center;z-index:99;padding:24px}
-.lb.open{display:flex}
-.lb img{max-width:min(92vw,700px);max-height:84vh;border-radius:14px}
-.lb button{position:absolute;top:20px;right:20px;background:#fff;border:0;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer}
-/* SVG divider */
-.divider{display:flex;justify-content:center;padding:0}
-.divider svg{width:220px;height:24px}
-.divider path{stroke:var(--bronze);stroke-width:1.5;fill:none}
-@media(max-width:900px){
-  .nav-links a{display:none}
-  .nav-links a.btn{display:inline-flex}
-  .grid{grid-template-columns:1fr 1fr}
-  .about .wrap{grid-template-columns:1fr}
-  .stores{grid-template-columns:1fr}
-  .steps{grid-template-columns:1fr}
-  .stats{grid-template-columns:1fr 1fr}
-  section{padding:64px 0}
-  .hero-in{padding:132px 0 60px;min-height:88vh}
-}
-@media(max-width:560px){.grid{grid-template-columns:1fr}}
-@media(prefers-reduced-motion:reduce){
-  *{animation:none!important;transition:none!important}
-  html{scroll-behavior:auto}
-}
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <nav>
   <div class="wrap nav-in">
-    <a class="logo" href="#top">MONOGRAM</a>
+    <a class="logo" href="index.html">MONOGRAM</a>
     <div class="nav-links">
-      <a href="#collection">Коллекция</a>
-      <a href="#about">О нас</a>
-      <a href="#stores">Магазины</a>
-      <a href="#faq">Вопросы</a>
+      <a href="index.html" class="active">Главная</a>
+      <a href="catalog.html">Каталог</a>
+      <a href="about.html">О нас</a>
+      <a href="contacts.html">Контакты</a>
       <a class="btn small" href="https://wa.me/996509977792?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%BE%D0%B4%D1%81%D0%BA%D0%B0%D0%B6%D0%B8%D1%82%D0%B5%20%D0%BF%D1%80%D0%BE%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B5%20%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%80%D0%B0" target="_blank" rel="noopener">WhatsApp</a>
     </div>
   </div>
@@ -199,7 +37,7 @@ footer{padding:56px 0 40px;border-top:1px solid var(--line);margin-top:40px}
     <p>MONOGRAM привозит премиальные европейские бренды в Бишкек. Ткани, посадка и фурнитура уровня, который чувствуется с первой примерки.</p>
     <div class="row">
       <a class="btn light" href="https://wa.me/996509977792?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D1%8C%20%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%80" target="_blank" rel="noopener">Написать в WhatsApp</a>
-      <a class="btn line" href="#collection">Смотреть коллекцию</a>
+      <a class="btn line" href="catalog.html">Смотреть каталог</a>
     </div>
     <div class="hero-meta">
       <div><b>Токтогула 140</b>основной зал, @monogramkg</div>
@@ -209,7 +47,7 @@ footer{padding:56px 0 40px;border-top:1px solid var(--line);margin-top:40px}
   </div>
 </header>
 
-<div class="marquee"><div class="marquee-track" id="mq">
+<div class="marquee"><div class="marquee-track">
 <span>концепт стор</span><span>Бишкек</span><span>премиальные бренды</span><span>мужская одежда</span><span>примерка в зале</span><span>концепт стор</span><span>Бишкек</span><span>премиальные бренды</span><span>мужская одежда</span><span>примерка в зале</span>
 </div></div>
 
@@ -230,45 +68,36 @@ footer{padding:56px 0 40px;border-top:1px solid var(--line);margin-top:40px}
 
 <div class="divider"><svg viewBox="0 0 220 24"><path d="M4 12 C 60 2, 160 22, 216 12"/></svg></div>
 
-<section id="collection" style="padding-top:56px">
+<section id="featured" style="padding-top:56px">
   <div class="wrap">
-    <div class="mono eyebrow rv">коллекция</div>
-    <h2 class="title serif rv">Живые фото из зала, без студии</h2>
-    <p class="lead rv">Это кадры из нашего Instagram. Так вещи выглядят в жизни, на вешалке и на человеке. Нажмите на фото, чтобы рассмотреть ближе.</p>
-    <div class="grid" id="grid">
+    <div class="teaser rv">
+      <div>
+        <div class="mono eyebrow">каталог</div>
+        <h2 class="title serif">Живые фото из зала, без студии</h2>
+        <p class="lead">Кадры из нашего Instagram. Так вещи выглядят в жизни, на вешалке и на человеке.</p>
+      </div>
+      <a class="btn" href="catalog.html">Весь каталог</a>
+    </div>
+    <div class="grid">
       <div class="card rv"><img src="assets/post-1.jpg" alt="Мужская куртка осень зима" loading="lazy"><div class="cap"><b>Верхняя одежда</b><small>осень зима 26/27</small></div></div>
       <div class="card rv"><img src="assets/post-2.jpg" alt="Синее пальто Monogram" loading="lazy"><div class="cap"><b>Пальто</b><small>глубокий синий</small></div></div>
-      <div class="card rv"><img src="assets/post-3.jpg" alt="Куртка на вешалке" loading="lazy"><div class="cap"><b>Куртки</b><small>спокойные тона</small></div></div>
-      <div class="card rv"><img src="assets/post-4.jpg" alt="Мужская одежда премиум" loading="lazy"><div class="cap"><b>Новинки зала</b><small>Токтогула 140</small></div></div>
       <div class="card rv"><img src="assets/post-5.jpg" alt="Утепленная рубашка куртка" loading="lazy"><div class="cap"><b>Рубашка куртка</b><small>удобная посадка</small></div></div>
-      <div class="card rv"><img src="assets/post-6.jpg" alt="Детали коллекции" loading="lazy"><div class="cap"><b>Детали</b><small>ткань и швы</small></div></div>
-      <div class="card rv"><img src="assets/post-7.jpg" alt="Образ из магазина" loading="lazy"><div class="cap"><b>Образы</b><small>собрано в зале</small></div></div>
-      <div class="card rv"><img src="assets/post-8.jpg" alt="Верхняя одежда мужская" loading="lazy"><div class="cap"><b>Верхняя одежда</b><small>на каждый день</small></div></div>
-      <div class="card rv"><img src="assets/post-9.jpg" alt="Витрина Monogram" loading="lazy"><div class="cap"><b>В зале</b><small>можно примерить</small></div></div>
+      <div class="card rv"><img src="assets/post-3.jpg" alt="Куртка на вешалке" loading="lazy"><div class="cap"><b>Куртки</b><small>спокойные тона</small></div></div>
       <div class="card rv"><img src="assets/post-10.jpg" alt="Новинка коллекции" loading="lazy"><div class="cap"><b>Новинка</b><small>спросите размер</small></div></div>
-      <div class="card rv"><img src="assets/post-11.jpg" alt="Стиль Monogram" loading="lazy"><div class="cap"><b>Стиль</b><small>тихий люкс</small></div></div>
-      <div class="card rv"><img src="assets/post-12.jpg" alt="Подборка магазина" loading="lazy"><div class="cap"><b>Подборка</b><small>обновляем каждую неделю</small></div></div>
-    </div>
-    <div class="rv" style="margin-top:26px;display:flex;gap:12px;flex-wrap:wrap">
-      <a class="btn" href="https://www.instagram.com/monogramkg" target="_blank" rel="noopener">Больше фото в Instagram</a>
-      <a class="btn ghost" href="https://wa.me/996509977792?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D1%80%D0%B8%D1%88%D0%BB%D0%B8%D1%82%D0%B5%20%D1%84%D0%BE%D1%82%D0%BE%20%D0%B2%D0%B5%D1%89%D0%B8%20%D0%B2%20%D0%BC%D0%BE%D0%B5%D0%BC%20%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%80%D0%B5" target="_blank" rel="noopener">Спросить свой размер</a>
+      <div class="card rv"><img src="assets/post-9.jpg" alt="Витрина Monogram" loading="lazy"><div class="cap"><b>В зале</b><small>можно примерить</small></div></div>
     </div>
   </div>
 </section>
 
-<section id="about" style="padding-top:40px">
+<section id="about-teaser" style="padding-top:40px">
   <div class="wrap">
     <div class="about rv">
       <div class="wrap">
         <div>
           <div class="mono" style="color:var(--bronze2)">о магазине</div>
           <h2 class="serif" style="font-size:clamp(30px,4vw,50px);margin-top:10px">Привозим Европу, отвечаем за каждую вещь</h2>
-          <p>MONOGRAM, официальный дистрибьютор премиальных европейских брендов в Бишкеке. Мы не гонимся за логотипами, выбираем ткани и крой, которые служат долго и смотрятся спокойно.</p>
-          <div class="checks">
-            <div class="check"><i>1</i><div><b>Оригинал и прямая поставка.</b><br><span style="color:rgba(255,255,255,.65)">Работаем с брендами напрямую, вещи приходят с бирками и в фирменной упаковке.</span></div></div>
-            <div class="check"><i>2</i><div><b>Честная примерка.</b><br><span style="color:rgba(255,255,255,.65)">Подскажем размер по вашим меркам, покажем как село по плечам и длине.</span></div></div>
-            <div class="check"><i>3</i><div><b>Два адреса рядом.</b><br><span style="color:rgba(255,255,255,.65)">Токтогула 140 и Дуйшеева 12. Если размера нет в одном зале, проверим второй.</span></div></div>
-          </div>
+          <p>MONOGRAM, официальный дистрибьютор премиальных европейских брендов в Бишкеке. Выбираем ткани и крой, которые служат долго и смотрятся спокойно.</p>
+          <div style="margin-top:26px"><a class="btn light" href="about.html">Подробнее о нас</a></div>
         </div>
         <div class="about-photo"><img src="assets/post-3.jpg" alt="Куртка в магазине Monogram"></div>
       </div>
@@ -276,60 +105,29 @@ footer{padding:56px 0 40px;border-top:1px solid var(--line);margin-top:40px}
   </div>
 </section>
 
-<section id="stores" style="padding-top:40px">
+<section id="stores-teaser" style="padding-top:40px">
   <div class="wrap">
-    <div class="mono eyebrow rv">магазины</div>
-    <h2 class="title serif rv">Два адреса в Бишкеке</h2>
-    <p class="lead rv">Оба зала открыты каждый день 10:00-20:00. Позвоните заранее, отложим ваш размер к вашему приходу.</p>
+    <div class="teaser rv">
+      <div>
+        <div class="mono eyebrow">магазины</div>
+        <h2 class="title serif">Два адреса в Бишкеке</h2>
+        <p class="lead">Оба зала открыты каждый день 10:00-20:00. Позвоните заранее, отложим ваш размер к вашему приходу.</p>
+      </div>
+      <a class="btn ghost" href="contacts.html">Все контакты</a>
+    </div>
     <div class="stores">
       <div class="store rv">
         <div class="mono" style="color:var(--bronze)">@monogramkg, основной</div>
         <h3>Токтогула 140</h3>
         <div class="addr">Бишкек, ул. Токтогула 140</div>
         <div class="meta">Ежедневно 10:00-20:00, +996 509 977 792</div>
-        <div class="row">
-          <a class="btn small" href="https://wa.me/996509977792?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D1%80%D0%B8%D0%B4%D1%83%20%D0%BD%D0%B0%20%D0%A2%D0%BE%D0%BA%D1%82%D0%BE%D0%B3%D1%83%D0%BB%D0%B0%20140" target="_blank" rel="noopener">Написать</a>
-          <a class="btn small ghost" href="https://www.instagram.com/monogramkg" target="_blank" rel="noopener">Instagram</a>
-          <a class="btn small ghost" href="tel:+996509977792">Позвонить</a>
-        </div>
       </div>
       <div class="store rv">
         <div class="mono" style="color:var(--bronze)">@monogram__premium</div>
         <h3>Дуйшеева 12</h3>
         <div class="addr">Бишкек, ул. Арстанбека Дуйшеева 12</div>
         <div class="meta">Ежедневно 10:00-20:00, premium линейка</div>
-        <div class="row">
-          <a class="btn small" href="https://wa.me/996509977792?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D1%80%D0%B8%D0%B4%D1%83%20%D0%BD%D0%B0%20%D0%94%D1%83%D0%B9%D1%88%D0%B5%D0%B5%D0%B2%D0%B0%2012" target="_blank" rel="noopener">Написать</a>
-          <a class="btn small ghost" href="https://www.instagram.com/monogram__premium" target="_blank" rel="noopener">Instagram</a>
-          <a class="btn small ghost" href="tel:+996509977792">Позвонить</a>
-        </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<section id="how" style="padding-top:40px">
-  <div class="wrap">
-    <div class="mono eyebrow rv">как купить</div>
-    <h2 class="title serif rv">Три шага до вещи, которая села</h2>
-    <div class="steps">
-      <div class="step rv"><div class="n serif">01</div><h4>Напишите нам</h4><p>Киньте в WhatsApp свой размер и что ищете. Пришлем живые фото и честно скажем, что есть в зале.</p></div>
-      <div class="step rv"><div class="n serif">02</div><h4>Приходите на примерку</h4><p>Отложим 2-3 размера к вашему приходу. Примерка спокойная, без спешки, с нормальным светом.</p></div>
-      <div class="step rv"><div class="n serif">03</div><h4>Носите с удовольствием</h4><p>Расскажем как ухаживать за тканью, чтобы вещь держала форму. Если что то не так, обращайтесь.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="faq" style="padding-top:40px">
-  <div class="wrap">
-    <div class="mono eyebrow rv">вопросы</div>
-    <h2 class="title serif rv">Спрашивают часто</h2>
-    <div class="faq">
-      <details class="rv"><summary>Это оригинал?</summary><p>Да. Мы официальный дистрибьютор европейских брендов. Вещи приходят напрямую, с бирками. Покажем все в магазине.</p></details>
-      <details class="rv"><summary>Как узнать свой размер?</summary><p>Напишите рост, вес и обычный размер в WhatsApp. Подберем по размерной сетке бренда и отложим два соседних размера на примерку.</p></details>
-      <details class="rv"><summary>Можно ли вернуть или обменять?</summary><p>Да, если бирки на месте и вещь не носили. Приходите в тот же магазин с чеком, поможем с обменом размера.</p></details>
-      <details class="rv"><summary>Есть ли доставка по городу?</summary><p>По Бишкеку договоримся, напишите адрес в WhatsApp. По регионам отправляем после полной предоплаты и фото вещи перед отправкой.</p></details>
-      <details class="rv"><summary>Чем отличаются два адреса?</summary><p>Токтогула 140, основной зал. Дуйшеева 12, линейка premium. Ассортимент пересекается, наличие лучше уточнить перед визитом.</p></details>
     </div>
   </div>
 </section>
@@ -367,9 +165,13 @@ footer{padding:56px 0 40px;border-top:1px solid var(--line);margin-top:40px}
 <footer>
   <div class="wrap foot">
     <div>
-      <a class="logo" href="#top" style="font-size:22px">MONOGRAM</a>
+      <a class="logo" href="index.html" style="font-size:22px">MONOGRAM</a>
       <small>Концепт стор в Бишкеке.<br>Официальный дистрибьютор премиальных европейских брендов.</small>
       <small>Фото на сайте, живые кадры из нашего Instagram.</small>
+    </div>
+    <div>
+      <b>Страницы</b>
+      <nav><a href="index.html">Главная</a><a href="catalog.html">Каталог</a><a href="about.html">О нас</a><a href="contacts.html">Контакты</a></nav>
     </div>
     <div>
       <b>Магазины</b>
@@ -385,33 +187,6 @@ footer{padding:56px 0 40px;border-top:1px solid var(--line);margin-top:40px}
 </footer>
 
 <div class="lb" id="lb"><button id="lbClose" aria-label="Закрыть">×</button><img id="lbImg" src="" alt="Фото крупно"></div>
-
-<script>
-(function(){
-  var io=new IntersectionObserver(function(es){
-    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}});
-  },{threshold:.12});
-  document.querySelectorAll(".rv").forEach(function(el){io.observe(el)});
-  var lb=document.getElementById("lb"),lbImg=document.getElementById("lbImg");
-  document.querySelectorAll(".card").forEach(function(c){
-    c.addEventListener("click",function(){
-      var im=c.querySelector("img");
-      lbImg.src=im.src;lbImg.alt=im.alt;
-      lb.classList.add("open");
-    });
-  });
-  document.getElementById("lbClose").addEventListener("click",function(){lb.classList.remove("open")});
-  lb.addEventListener("click",function(e){if(e.target===lb)lb.classList.remove("open")});
-  document.addEventListener("keydown",function(e){if(e.key==="Escape")lb.classList.remove("open")});
-  document.getElementById("waForm").addEventListener("submit",function(e){
-    e.preventDefault();
-    var n=document.getElementById("waName").value.trim();
-    var s=document.getElementById("waSize").value;
-    var t=document.getElementById("waText").value.trim();
-    var msg="Здравствуйте! "+(n?("Меня зовут "+n+". "):"")+(s?("Мой размер: "+s+". "):"")+(t?("Ищу: "+t):"Интересует наличие.");
-    window.open("https://wa.me/996509977792?text="+encodeURIComponent(msg),"_blank");
-  });
-})();
-</script>
+<script src="script.js"></script>
 </body>
 </html>

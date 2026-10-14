@@ -50,6 +50,8 @@ nav{
 .btn.ghost{background:transparent;color:var(--ink)}
 .btn.ghost:hover{background:var(--ink);color:var(--ivory)}
 .btn.small{padding:10px 20px;font-size:13px}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:12px 4px}
+.burger span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;transition:transform .3s ease,opacity .3s ease}
 /* HERO (home) */
 .hero{position:relative;background:var(--ink);overflow:hidden}
 .hero-bg{position:absolute;inset:0}
@@ -156,11 +158,16 @@ footer{padding:56px 0 40px;border-top:1px solid var(--line);margin-top:40px}
 .divider svg{width:220px;height:24px}
 .divider path{stroke:var(--bronze);stroke-width:1.5;fill:none}
 @media(max-width:900px){
-  .nav-in{flex-wrap:wrap;height:auto;padding:12px 0 0}
-  .logo{font-size:21px;padding:0 24px}
-  .nav-links{display:flex;gap:18px;overflow-x:auto;width:100%;padding:10px 24px 14px;scrollbar-width:none}
-  .nav-links::-webkit-scrollbar{display:none}
-  .nav-links a{white-space:nowrap;padding:10px 2px}
+  .nav-in{flex-wrap:nowrap;height:64px;padding:0}
+  .logo{font-size:21px}
+  .burger{display:block}
+  .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .nav-links{position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--ivory);border-bottom:1px solid var(--line);box-shadow:0 24px 40px rgba(22,18,13,.12);padding:0 24px;max-height:0;opacity:0;overflow:hidden;transition:max-height .35s ease,opacity .3s ease,padding .3s ease}
+  .nav-links.open{max-height:460px;opacity:1;padding:8px 24px 20px}
+  .nav-links a{white-space:normal;padding:13px 0;border-bottom:1px solid var(--line);font-size:16px}
+  .nav-links a.btn{margin-top:14px;justify-content:center;border-bottom:0}
   .hero .row .btn{flex:1 1 100%;justify-content:center}
   .cta .row .btn{flex:1 1 100%;justify-content:center}
   .teaser{flex-direction:column;align-items:flex-start}
@@ -178,7 +185,7 @@ footer{padding:56px 0 40px;border-top:1px solid var(--line);margin-top:40px}
   .stats{grid-template-columns:1fr 1fr}
   section{padding:64px 0}
   .hero-in{padding:118px 24px 44px;min-height:0}
-  .page-hero{padding:150px 0 44px}
+  .page-hero{padding:112px 0 44px}
 }
 @media(max-width:560px){.grid{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){

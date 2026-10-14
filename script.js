@@ -41,4 +41,18 @@
       });
     });
   }
+  var burger=document.getElementById("burger");
+  if(burger){
+    var menu=document.querySelector(".nav-links");
+    burger.addEventListener("click",function(){
+      var open=menu.classList.toggle("open");
+      burger.classList.toggle("open",open);
+      burger.setAttribute("aria-expanded",open?"true":"false");
+      burger.setAttribute("aria-label",open?"Закрыть меню":"Открыть меню");
+    });
+    menu.querySelectorAll("a").forEach(function(a){
+      a.addEventListener("click",function(){menu.classList.remove("open");burger.classList.remove("open");burger.setAttribute("aria-expanded","false")});
+    });
+    document.addEventListener("keydown",function(e){if(e.key==="Escape"&&menu.classList.contains("open")){menu.classList.remove("open");burger.classList.remove("open");burger.setAttribute("aria-expanded","false")}});
+  }
 })();

@@ -64,9 +64,6 @@ nav{
 .btn.light:hover{background:var(--bronze2);border-color:var(--bronze2);color:#fff}
 .btn.line{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
 .btn.line:hover{border-color:#fff;background:rgba(255,255,255,.12)}
-.hero-meta{display:flex;gap:28px;flex-wrap:wrap;margin-top:30px;padding-top:16px;border-top:1px solid rgba(255,255,255,.22)}
-.hero-meta div{color:rgba(255,255,255,.72);font-size:14px}
-.hero-meta b{display:block;color:#fff;font-size:15px;margin-bottom:2px}
 /* PAGE HERO (inner pages) */
 .page-hero{background:var(--sand);border-bottom:1px solid var(--line);padding:138px 0 54px}
 .page-hero h1{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(36px,5vw,62px);line-height:1.06;margin-top:12px;max-width:20ch}
